@@ -1,0 +1,44 @@
+{
+  "name": "nsp-passport-size-photo-maker",
+  "version": "1.0.0",
+  "description": "NSP Passport Size Photo Maker desktop prototype",
+  "author": "NSP Digital Technology",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "in.nspdigi.passportphotomaker",
+    "productName": "NSP Passport Size Photo Maker",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.cjs",
+      "app/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "NSP-Passport-Size-Photo-Maker-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
